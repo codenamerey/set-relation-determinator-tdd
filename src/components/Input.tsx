@@ -1,6 +1,6 @@
 import { Ref, useRef } from "react"
 
-export const segregateSets = (setText: string) => {
+export const segregateSet = (setText: string) => {
   const relationsUnstripped:string[] = setText.match(/\([^)]+\)/gi) || [""]
   
   const relations = relationsUnstripped.map((relationUnstripped:string) => {
@@ -12,7 +12,7 @@ export const segregateSets = (setText: string) => {
   return relations
 }
 
-const Input = ({style, setSets}: {style: Object, setSets: Function}) => {
+const Input = ({style, setSet}: {style: Object, setSet: Function}) => {
 
 
   const setTextRef:Ref<HTMLTextAreaElement> = useRef(null);
@@ -20,7 +20,7 @@ const Input = ({style, setSets}: {style: Object, setSets: Function}) => {
   return (
     <>
       <textarea style={style} ref={setTextRef}/>
-      <button onClick={() => { setSets(segregateSets(setTextRef.current!.value)) }}>Evaluate Sets</button>
+      <button onClick={() => { setSet(segregateSet(setTextRef.current!.value)) }}>Evaluate Sets</button>
     </>
   )
 }

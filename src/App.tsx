@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Input from './components/Input.tsx'
 import Output from './components/Output.tsx'
@@ -84,8 +84,10 @@ const isSameArray = (array1:number[], array2:number[]) => {
 //#endregion
 
 function App() {
+  
+  
   const [result, setResult] = useState<result>({})
-  const [sets, setSets] = useState<number[][]>([]);
+  const [set, setSet] = useState<number[][]>([]);
 
   const style = {
     "padding": "4px"
@@ -93,7 +95,7 @@ function App() {
 
   return (
     <>
-      <Input style={style} setSets={setSets}/>
+      <Input style={style} setSet={setSet}/>
       <Output result={result} />
     </>
   )
