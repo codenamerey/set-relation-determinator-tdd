@@ -7,6 +7,7 @@ import { result } from './interfaces/interfaces.tsx'
 
 function App() {
   const [result, setResult] = useState<result>({})
+  const [sets, setSets] = useState<number[][]>([]);
 
   const style = {
     "padding": "4px"
@@ -14,7 +15,7 @@ function App() {
 
   return (
     <>
-      <Input style={style} />
+      <Input style={style} setSets={setSets}/>
       <Output result={result} />
     </>
   )

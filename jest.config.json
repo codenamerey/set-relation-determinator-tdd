@@ -1,4 +1,6 @@
 {
   "preset": "ts-jest",
-  "testEnvironment": "node"
+  "testEnvironment": "node",
+  "roots": ["src"],
+  "modulePaths": ["node_modules", "<rootDir>/src"]
 }
