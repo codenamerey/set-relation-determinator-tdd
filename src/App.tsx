@@ -27,6 +27,19 @@ export const isTransitive = (set:number[][]) => {
   })
 }
 
+export const isSymmetrical = (set:number[][]) => {
+  return set.every(relation => {
+      let relationReversed = (relation.slice()).reverse();
+      return hasSomeSymmetry(relationReversed, set);
+  });
+
+  function hasSomeSymmetry(relationReversed:number[], set:number[][]) {
+      return set.some(relation => {
+          return relationReversed[0] == relation[0] && relationReversed[1] == relation[1]
+      });
+  }
+}
+
 const isSameArray = (array1:number[], array2:number[]) => {
   if(array1.length !== array2.length) return false;
   return array1.every((element, index) => {
