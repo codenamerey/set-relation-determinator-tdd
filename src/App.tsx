@@ -88,6 +88,25 @@ function App() {
   
   const [result, setResult] = useState<result>({})
   const [set, setSet] = useState<number[][]>([]);
+  
+  useEffect(() => {
+
+    // Ignore if set is empty
+    if(!set.length) return
+
+
+
+    const newResult:result = {
+      isReflexive: isReflexive(set),
+      isTransitive: isTransitive(set),
+      isSymmetric: isSymmetrical(set),
+      isAntiSymmetric: isAntisymmetrical(set),
+    }
+
+    setResult(newResult)
+
+    console.log(JSON.stringify(newResult, null, 4))
+  }, [set])
 
   const style = {
     "padding": "4px"
