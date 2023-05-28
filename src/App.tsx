@@ -3,6 +3,7 @@ import './App.css'
 import Input from './components/Input.tsx'
 import Output from './components/Output.tsx'
 import { result } from './interfaces/interfaces.tsx'
+import Header from './components/Header.tsx'
 
 //#region Set methods region
 export const isTransitive = (set:number[][]) => {
@@ -120,6 +121,7 @@ function App() {
 
   return (
     <>
+      <Header />
       <Input style={style} setSet={setSet}/>
       <Output result={result} />
     </>
