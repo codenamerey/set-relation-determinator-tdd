@@ -108,7 +108,14 @@ function App() {
   }, [set])
 
   const style = {
-    "padding": "4px"
+    "padding": "4px",
+    "display": "flex",
+    "flexDirection": "column",
+    "gap": "10px",
+    "flexGrow": "1",
+    "maxWidth": "1000px",
+    "width": "100%",
+    "alignItems": "center"
   }
 
   return (

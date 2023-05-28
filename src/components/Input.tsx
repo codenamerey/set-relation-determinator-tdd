@@ -17,10 +17,19 @@ const Input = ({style, setSet}: {style: Object, setSet: Function}) => {
 
   const setTextRef:Ref<HTMLTextAreaElement> = useRef(null);
 
+  const textareaStyle = {
+    "flexGrow": "1",
+    "padding": "1rem",
+    "width": "100%"
+  }
+
   return (
     <>
-      <textarea style={style} ref={setTextRef}/>
-      <button onClick={() => { setSet(segregateSet(setTextRef.current!.value)) }}>Evaluate Sets</button>
+      <div style={style} id="input">
+        <textarea ref={setTextRef} style={textareaStyle}/>
+        <p><em>Tip:</em> Use parenthesis to segregate relations</p>
+        <button style={{"width": "fit-content"}} onClick={() => { setSet(segregateSet(setTextRef.current!.value)) }}>Evaluate Sets</button>
+      </div>
     </>
   )
 }
