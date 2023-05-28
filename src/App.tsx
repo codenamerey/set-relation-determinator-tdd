@@ -40,6 +40,18 @@ export const isSymmetrical = (set:number[][]) => {
   }
 }
 
+export const isReflexive = (set:number[][]) => {
+  return set.every(relation => {
+       return hasSomeReflection(relation[0], set) && hasSomeReflection(relation[1], set);
+  });
+
+  function hasSomeReflection(element:number, set:number[][]) {
+      return set.some(relation => {
+          return element == relation[0] && element == relation[1];
+      });
+  }
+}
+
 const isSameArray = (array1:number[], array2:number[]) => {
   if(array1.length !== array2.length) return false;
   return array1.every((element, index) => {
