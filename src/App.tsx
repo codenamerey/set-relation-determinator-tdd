@@ -4,7 +4,7 @@ import Input from './components/Input.tsx'
 import Output from './components/Output.tsx'
 import { result } from './interfaces/interfaces.tsx'
 
-
+//#region Set methods region
 export const isTransitive = (set:number[][]) => {
   return set.every(element => {
     let first_item = element[0];
@@ -52,12 +52,36 @@ export const isReflexive = (set:number[][]) => {
   }
 }
 
+export const isAntisymmetrical = (set:number[][]) => {
+
+  return set.every((relation) => {
+      let relationReversed = (relation.slice()).reverse()
+      return checkAntisymmetry(relationReversed, set);
+  })
+
+  function checkAntisymmetry(element:number[], set:number[][]) {
+      const setHasRelation = set.some(relation => {
+          return isSameArray(relation, element);
+      })
+      if(setHasRelation) {
+          if(!(element[0] == element[1])) {
+              return false;
+          }
+
+          return true;
+      } else {
+          return true;
+      }
+  }
+}
+
 const isSameArray = (array1:number[], array2:number[]) => {
   if(array1.length !== array2.length) return false;
   return array1.every((element, index) => {
       return element == array2[index];
   })
 }
+//#endregion
 
 function App() {
   const [result, setResult] = useState<result>({})

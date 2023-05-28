@@ -1,4 +1,4 @@
-import { isReflexive, isSymmetrical, isTransitive } from "./App"
+import { isAntisymmetrical, isReflexive, isSymmetrical, isTransitive } from "./App"
 
 describe("Test Transitivity", () => {
     it("Works with single-digit set members", () => {
@@ -43,5 +43,23 @@ describe("Test reflexivity", () => {
 
     it("Fails with non-reflexive sets", () => {
         expect(isReflexive([[11,11], [12, 12], [13, 13], [14, 13]])).toBe(false)
+    })    
+})
+
+describe("Test antisymmetry", () => {
+    it("Works with sets with one cardinality", () => {
+        expect(isAntisymmetrical([[1,1]])).toBe(true)
+    })
+
+    it("Works with two set members", () => {
+        expect(isAntisymmetrical([[1,2], [2,1]])).toBe(false)
+    })
+
+    it("Works with more than two set members", () => {
+        expect(isAntisymmetrical([[11,11], [12, 13], [13, 12]])).toBe(false)
+    })
+
+    it("Fails with non-reflexive sets", () => {
+        expect(isAntisymmetrical([[11,11], [12, 12], [13, 13], [14, 13]])).toBe(true)
     })    
 })
