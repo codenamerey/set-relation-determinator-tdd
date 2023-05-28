@@ -1,4 +1,4 @@
-import { Ref, useRef } from "react"
+import { CSSProperties, Ref, useRef } from "react"
 
 export const segregateSet = (setText: string) => {
   const relationsUnstripped:string[] = setText.match(/\([^)]+\)/gi) || [""]
@@ -17,10 +17,11 @@ const Input = ({style, setSet}: {style: Object, setSet: Function}) => {
 
   const setTextRef:Ref<HTMLTextAreaElement> = useRef(null);
 
-  const textareaStyle = {
+  const textareaStyle : CSSProperties = {
     "flexGrow": "1",
     "padding": "1rem",
-    "width": "100%"
+    "width": "100%",
+    "resize": "none"
   }
 
   return (
