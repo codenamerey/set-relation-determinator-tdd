@@ -105,7 +105,6 @@ function App() {
 
     setResult(newResult)
 
-    console.log(JSON.stringify(newResult, null, 4))
   }, [set])
 
   const style = {

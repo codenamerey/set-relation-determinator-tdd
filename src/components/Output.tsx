@@ -8,10 +8,10 @@ const Output = ({result}:{result:result}) => {
 
   return (
     <output>
-        <p>Is it reflexive? {result.isReflexive ? isPropertyTrue(result.isReflexive) : ''}</p>
-        <p>Is it transitive? {result.isTransitive ? isPropertyTrue(result.isTransitive) : ''}</p>
-        <p>Is it symmetric? {result.isReflexive ? isPropertyTrue(result.isSymmetric!) : ''}</p>
-        <p>Is it antisymmetric? {result.isAntiSymmetric ? isPropertyTrue(result.isAntiSymmetric) : ''}</p>
+        <p>Is it reflexive? {result.isReflexive || result.isReflexive != undefined ? isPropertyTrue(result.isReflexive) : ''}</p>
+        <p>Is it transitive? {result.isTransitive || result.isReflexive != undefined ? isPropertyTrue(result.isTransitive!) : ''}</p>
+        <p>Is it symmetric? {result.isReflexive || result.isReflexive != undefined ? isPropertyTrue(result.isSymmetric!) : ''}</p>
+        <p>Is it antisymmetric? {result.isAntiSymmetric || result.isReflexive != undefined ? isPropertyTrue(result.isAntiSymmetric!) : ''}</p>
     </output>
   )
 }
